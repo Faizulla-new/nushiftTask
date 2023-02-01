@@ -1,0 +1,57 @@
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col logo-head">
+        <h3 class="center">Nushift Data</h3>
+      </div>
+    </div>
+    <div class="row " style="justify-content: center;" >
+      <div class="col col-lg-3 col-md-3 close add-center" *ngFor="let item of widgets">
+        <div class="card back  " >
+          <img class="curse" (click)="showimage(item.name, content)" data-bs-toggle="modal" data-bs-target="#myModal" src="https://source.unsplash.com/random/300×300/?{{item.name}}" style="border-radius: 10px;" height="200px" width="100%" alt="">
+          <div class="card-body">
+            <h5 class="card-title" style="color: #2D2D2D; font-weight: 700;text-align: center;"> {{item.name}} </h5>
+            <h5 class="card-title" style="color: #2D2D2D; font-weight: 700;text-align: center;"> {{item.state}} </h5>
+            <div class="row">
+              <h6 class="desc">Directions</h6>
+              <!-- <div class="lat"> -->
+                <p class="lat"> <span>Latitude: </span> <span>{{item.lat}}</span> </p>
+                <p class="lat"> <span>Longitude: </span> <span>{{item.lon}}</span></p>
+              <!-- </div> -->
+
+            </div>
+          </div>
+          <!-- <div class="card-footer text-muted">
+            <div class="row">
+              <ul class="social-icons">
+                <li (click)="addWidgetData(0, false)"><a ><img width="30px" src="assets/icons/add.png"></a></li>
+                <li (click)="viewWidgetData(item.id)"><a ><img width="30px" src="assets/icons/view.png"></a></li>
+                <li (click)="addWidgetData(item.id, true)"><a ><img width="30px" src="assets/icons/edit.png"></a></li>
+                <li (click)="deleteWidgetAlert(item.id)" ><a ><img width="30px" src="assets/icons/remove.png"></a></li>
+              </ul>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+
+
+
+
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Preview</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+    <img   src="https://source.unsplash.com/random/300×300/?{{image}}" style="border-radius: 10px;"  width="100%" alt="">
+
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+	</div>
+</ng-template>
